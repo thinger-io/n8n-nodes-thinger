@@ -89,6 +89,7 @@ const properties: INodeProperties[] = [
 		displayName: 'Time Period Units',
 		name: 'timespanUnits',
 		type: 'options',
+		// eslint-disable-next-line n8n-nodes-base/node-param-options-type-unsorted-items
 		options: [
 			{ name: 'Seconds', value: 's' },
 			{ name: 'Minutes', value: 'm' },
@@ -151,8 +152,8 @@ const properties: INodeProperties[] = [
 		displayName: 'Limit',
 		name: 'limit',
 		type: 'number',
-		default: -1,
-		description: 'Number of registries to return, -1 for all',
+		default: -1, //eslint-disable-line n8n-nodes-base/node-param-default-wrong-for-limit
+		description: 'Number of registries to return, -1 for all', // eslint-disable-line n8n-nodes-base/node-param-description-wrong-for-limit
 		displayOptions: {
 			show: {
 				filter: ['relative', 'absolute'],
@@ -185,22 +186,21 @@ const properties: INodeProperties[] = [
 		type: 'options',
 		description: 'Select the aggregation method for the data',
 		// eslint-disable-next-line n8n-nodes-base/node-param-options-type-unsorted-items
-		// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
 		options: [
 			{ name: 'None', value: '' },
-			{ name: '5 min', value: '5min' },
-			{ name: '15 min', value: '15min' },
-			{ name: '30 min', value: '30min' },
-			{ name: '1 hour', value: '1h' },
-			{ name: '3 hours', value: '3h' },
-			{ name: '6 hours', value: '6h' },
-			{ name: '12 hours', value: '12h' },
-			{ name: '1 day', value: '1d' },
-			{ name: '1 week', value: '1w' },
-			{ name: '1 month', value: '1mo' },
-			{ name: '3 months', value: '3mo' },
-			{ name: '6 months', value: '6mo' },
-			{ name: '1 year', value: '1y' },
+			{ name: '5 min', value: '5min' }, // eslint-disable-line n8n-nodes-base/node-param-display-name-miscased
+			{ name: '15 min', value: '15min' }, // eslint-disable-line n8n-nodes-base/node-param-display-name-miscased
+			{ name: '30 min', value: '30min' }, // eslint-disable-line n8n-nodes-base/node-param-display-name-miscased
+			{ name: '1 hour', value: '1h' }, // eslint-disable-line n8n-nodes-base/node-param-display-name-miscased
+			{ name: '3 hours', value: '3h' }, // eslint-disable-line n8n-nodes-base/node-param-display-name-miscased
+			{ name: '6 hours', value: '6h' }, // eslint-disable-line n8n-nodes-base/node-param-display-name-miscased
+			{ name: '12 hours', value: '12h' }, // eslint-disable-line n8n-nodes-base/node-param-display-name-miscased
+			{ name: '1 day', value: '1d' }, // eslint-disable-line n8n-nodes-base/node-param-display-name-miscased
+			{ name: '1 week', value: '1w' }, // eslint-disable-line n8n-nodes-base/node-param-display-name-miscased
+			{ name: '1 month', value: '1mo' }, // eslint-disable-line n8n-nodes-base/node-param-display-name-miscased
+			{ name: '3 months', value: '3mo' }, // eslint-disable-line n8n-nodes-base/node-param-display-name-miscased
+			{ name: '6 months', value: '6mo' }, // eslint-disable-line n8n-nodes-base/node-param-display-name-miscased
+			{ name: '1 year', value: '1y' }, // eslint-disable-line n8n-nodes-base/node-param-display-name-miscased
 		],
 		default: '',
 	},

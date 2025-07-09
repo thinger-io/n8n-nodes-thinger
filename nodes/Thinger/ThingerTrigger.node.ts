@@ -61,7 +61,7 @@ export class ThingerTrigger implements INodeType {
 					loadOptionsMethod: 'loadAssets',
 				},
 			},
-			{
+			{ // eslint-disable-next-line n8n-nodes-base/node-param-display-name-wrong-for-dynamic-options
 				displayName: 'Event',
 				name: 'event',
 				type: 'options',
@@ -83,7 +83,6 @@ export class ThingerTrigger implements INodeType {
 					mappingMode: 'defineBelow',
 					value: null,
 				},
-				required: false,
 				typeOptions: {
 					loadOptionsDependsOn: ['event'],
 					resourceMapper: {

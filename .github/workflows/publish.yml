@@ -34,7 +34,7 @@ jobs:
       - name: Bump pre-release version (develop)
         if: github.ref == 'refs/heads/develop'
         run: |
-          npm version prerelease --preid=alpha --no-git-tag-version
+          npm version prerelease --preid=alpha --allow-same-version=true
 
       - name: Publish to npm with next tag (develop)
         if: github.ref == 'refs/heads/develop'
