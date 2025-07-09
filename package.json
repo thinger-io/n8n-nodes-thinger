@@ -1,6 +1,6 @@
 {
   "name": "@thinger-io/n8n-nodes-thinger",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.1",
   "description": "n8n node for interacting with the Thinger.io API",
   "keywords": [
     "n8n-community-node-package",
@@ -52,8 +52,7 @@
     "prettier": "^3.5.3",
     "typescript": "^5.8.2"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "peerDependencies": {
     "n8n-workflow": "*",
     "ws": "^8.0.0",
