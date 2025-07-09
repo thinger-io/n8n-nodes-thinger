@@ -10,7 +10,6 @@ import type {
 
 import { getApiUser } from '../helpers/utils';
 
-// eslint-disable-next-line n8n-community-packages/no-restricted-imports
 import { WebSocket } from 'ws'; // Import WebSocket from 'ws' package
 
 /**
