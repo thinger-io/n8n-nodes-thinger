@@ -35,6 +35,11 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: Configure git
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+
       - name: Bump pre-release version (develop)
         if: github.ref == 'refs/heads/develop'
         run: |
