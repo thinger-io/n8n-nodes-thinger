@@ -3,8 +3,8 @@ import {ILoadOptionsFunctions, INodePropertyOptions} from "n8n-workflow";
 import { apiRequest } from "../transport";
 
 import { sortObjectArray } from "../helpers/utils";
-import path from "node:path";
-import * as fs from "node:fs";
+import path from "path";
+import * as fs from "fs";
 
 /**
  * Load options for assets: (Ex. device, buckets, users, domains, etc.)

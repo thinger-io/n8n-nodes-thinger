@@ -1,4 +1,4 @@
-import {Buffer} from "node:buffer";
+import { Buffer } from "buffer";
 
 export function getApiUser(apiToken: string) {
 	const decodedJWT = JSON.parse(Buffer.from(apiToken.split('.')[1], 'base64').toString());
