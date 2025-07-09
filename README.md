@@ -2,6 +2,10 @@
 
 This is an n8n community node. It lets you use Thinger.io API in your n8n workflows.
 
+<p align="center">
+  <img src='https://s3.eu-west-1.amazonaws.com/thinger.io.files/plugins/n8n/img/n8n-thinger-node.png' alt="Thinger n8n node">
+</p>
+
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
 [Installation](#installation)  
@@ -41,7 +45,11 @@ This n8n community node is compatible with the latest versions of n8n.
 
 Usage is rather simple. First of all select either the Thinger node or the Thinger Trigger node, based on the operations desired.
 
-All input configuration can allows expressions.
+All input configuration allows expressions.
+
+<p align="center">
+  <img src='https://s3.eu-west-1.amazonaws.com/thinger.io.files/plugins/n8n/img/n8n-thinger-node-configuration.png' alt="Thinger n8n node">
+</p>
 
 
 ## Resources
