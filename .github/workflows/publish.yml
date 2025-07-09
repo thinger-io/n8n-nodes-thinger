@@ -13,6 +13,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Get tag version
+        run: |
+          echo "tag_version=`awk '/^## \[[0-9]+/' CHANGELOG.md | awk 'NR==1 && -F"\[\]" {print $2}' 2>/dev/null | tail -c +2 | head -c -2`" >> $GITHUB_ENV
+
       - name: Use Node.js 20.x
         uses: actions/setup-node@v4
         with:
@@ -34,9 +38,9 @@ jobs:
       - name: Bump pre-release version (develop)
         if: github.ref == 'refs/heads/develop'
         run: |
-          npm version prerelease --preid=alpha --allow-same-version=true
+          npm version ${{ env.tag_version }} --preid=alpha --allow-same-version=true
 
-      - name: Publish to npm with next tag (develop)
+      - name: Publish to npm with alpha tag (develop)
         if: github.ref == 'refs/heads/develop'
         run: npm publish --tag alpha --access public
         env:
