@@ -1,0 +1,18 @@
+{
+  "node": "n8n-nodes-thinger.thinger",
+  "nodeVersion": "1.0",
+  "codexVersion": "1.0",
+  "categories": ["Development", "Data & Storage"],
+  "resources": {
+    "credentialDocumentation": [
+      {
+        "url": "https://docs.thinger.io/features/access-tokens"
+      }
+    ],
+    "primaryDocumentation": [
+      {
+        "url": "https://marketplace.thinger.io/plugins/n8n/"
+      }
+    ]
+  }
+}

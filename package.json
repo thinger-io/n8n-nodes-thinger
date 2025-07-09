@@ -1,0 +1,63 @@
+{
+  "name": "@thinger-io/n8n-nodes-thinger",
+  "version": "1.0.0",
+  "description": "n8n node for interacting with the Thinger.io API",
+  "keywords": [
+    "n8n-community-node-package",
+    "thinger.io",
+    "IoT",
+    "arduino",
+    "raspberry"
+  ],
+  "license": "MIT",
+  "homepage": "https://thinger.io",
+  "author": {
+    "name": "Thinger.io",
+    "email": "support@thinger.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thinger-io/n8n-nodes-thinger.git"
+  },
+  "engines": {
+    "node": ">=20.15"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "npx rimraf dist && tsc && gulp build:icons",
+    "dev": "tsc --watch",
+    "format": "prettier nodes credentials --write",
+    "lint": "eslint nodes credentials package.json",
+    "lintfix": "eslint nodes credentials package.json --fix",
+    "prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes credentials package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/ThingerTokenApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Thinger/Thinger.node.js",
+      "dist/nodes/Thinger/ThingerTrigger.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "~8.32.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.3",
+    "gulp": "^5.0.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "@types/node": "^20.14.8",
+    "ws": "^8.18.0",
+    "@types/ws": "^8.18.0"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}
