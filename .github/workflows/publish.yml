@@ -43,7 +43,7 @@ jobs:
                       break;
                   fi
               done
-          elif [ ${{ env.branch }} == 'master' ]; then
+          elif [ ${{ env.branch }} == 'main' ]; then
               echo "npm_tag_version=latest" >> $GITHUB_ENV
           elif [ `git tag --list | grep -q ${{ env.tag_version }}` -ne 0 ]; then exit 1; fi
 
