@@ -26,8 +26,6 @@ This community node allows to execute `get single` and `get many` for all the as
 
  -Bucket Read
 
-There is also a Trigger node that subscribes to Thinger.io events.
-
 ## Credentials
 
 For authenticating with Thinger.io API, an Access Token has to be created. More information on how to create an Access Token can be found [here](https://docs.thinger.io/features/access-tokens).
@@ -38,7 +36,7 @@ This n8n community node is compatible with the latest versions of n8n.
 
 ## Usage
 
-Usage is rather simple. First of all select either the Thinger node or the Thinger Trigger node, based on the operations desired.
+Usage is rather simple. First of all select the Thinger node, and configure the asset and operations desired.
 
 All input configuration allows expressions.
 

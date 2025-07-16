@@ -3,6 +3,7 @@
 ## [1.0.2] - 2025-07-16
 
 - Removed access to filesystem when dinamically reading available operations for assets
+- Removed Trigger node as WebSocket dependency is not allowed
 
 ## [1.0.1] - 2025-07-15
 

@@ -40,8 +40,7 @@
       "dist/credentials/ThingerTokenApi.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/Thinger/Thinger.node.js",
-      "dist/nodes/Thinger/ThingerTrigger.node.js"
+      "dist/nodes/Thinger/Thinger.node.js"
     ]
   },
   "devDependencies": {
@@ -54,8 +53,6 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "n8n-workflow": "*",
-    "ws": "*",
-    "@types/ws": "*"
+    "n8n-workflow": "*"
   }
 }
