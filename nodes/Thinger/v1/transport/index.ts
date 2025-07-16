@@ -5,12 +5,9 @@ import type {
 	ILoadOptionsFunctions,
 	IHttpRequestMethods,
 	IRequestOptions,
-	ITriggerFunctions,
 } from 'n8n-workflow';
 
 import { getApiUser } from '../helpers/utils';
-
-import { WebSocket } from 'ws'; // Import WebSocket from 'ws' package
 
 /**
  * Make an API request to Thinger.io
@@ -87,35 +84,4 @@ export async function apiRequestAllItems(
 	} while (responseData.length === query.count);
 
 	return returnData;
-}
-
-/**
- * Open a WebSocket connection to Thinger.io
- */
-export async function createWebSocket(
-	this: IExecuteFunctions | ILoadOptionsFunctions | IPollFunctions | ITriggerFunctions,
-	endpoint: string,
-	host?: string,
-): Promise<WebSocket> {
-
-	const authenticationMethod = this.getNodeParameter('authentication', 0) as string;
-
-
-	const credentials = await this.getCredentials(authenticationMethod);
-	endpoint = endpoint.replace('{user}', getApiUser(credentials.authToken as string));
-
-	if ( !host  ) {
-		const thingerHost = credentials.thingerHost as string;
-		host = credentials.useSSL === true ? `wss://${thingerHost}` : `ws://${thingerHost}`;
-	}
-
-	const headers = {
-		Authorization: `Bearer ${credentials.authToken}`,
-	}
-
-	const ws = new WebSocket(`${host}${endpoint}`, {
-		headers: headers
-	});
-
-	return ws;
 }

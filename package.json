@@ -1,6 +1,6 @@
 {
   "name": "@thinger-io/n8n-nodes-thinger",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "n8n node for interacting with the Thinger.io API",
   "keywords": [
     "n8n-community-node-package",
@@ -40,8 +40,7 @@
       "dist/credentials/ThingerTokenApi.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/Thinger/Thinger.node.js",
-      "dist/nodes/Thinger/ThingerTrigger.node.js"
+      "dist/nodes/Thinger/Thinger.node.js"
     ]
   },
   "devDependencies": {
@@ -55,7 +54,6 @@
   "dependencies": {},
   "peerDependencies": {
     "n8n-workflow": "*",
-    "ws": "*",
-    "@types/ws": "*"
+    "@types/node": "*"
   }
 }
