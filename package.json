@@ -1,6 +1,6 @@
 {
   "name": "@thinger-io/n8n-nodes-thinger",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "n8n node for interacting with the Thinger.io API",
   "keywords": [
     "n8n-community-node-package",
