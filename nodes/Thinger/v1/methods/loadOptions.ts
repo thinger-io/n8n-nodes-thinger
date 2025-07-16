@@ -3,8 +3,9 @@ import {ILoadOptionsFunctions, INodePropertyOptions} from "n8n-workflow";
 import { apiRequest } from "../transport";
 
 import { sortObjectArray } from "../helpers/utils";
-import path from "path";
-import * as fs from "fs";
+
+const path = require("path");
+const fs = require("fs");
 
 /**
  * Load options for assets: (Ex. device, buckets, users, domains, etc.)
@@ -51,8 +52,8 @@ export async function loadAssetOperations(this: ILoadOptionsFunctions): Promise<
 		const files = fs.readdirSync(operationsPath);
 
 		options = files
-			.filter(file => file.endsWith('.operation.ts') || file.endsWith('.operation.js'))
-			.map(file => {
+			.filter((file: string) => file.endsWith('.operation.ts') || file.endsWith('.operation.js'))
+			.map((file: string) => {
 				const opName = file.replace('.operation.ts', '').replace('.operation.js', '');
 				return {
 					name: opName.replace(/(^\w)/, m => m.toUpperCase()),
