@@ -2,8 +2,15 @@
 
 ## [1.0.2] - 2025-07-16
 
+### Added
+
+- Added @types/nodes as peerDependency in order to use Buffer
+
+### Removed
+
 - Removed access to filesystem when dinamically reading available operations for assets
 - Removed Trigger node as WebSocket dependency is not allowed
+
 
 ## [1.0.1] - 2025-07-15
 
