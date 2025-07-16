@@ -28,11 +28,6 @@ This community node allows to execute `get single` and `get many` for all the as
 
 There is also a Trigger node that subscribes to Thinger.io events.
 
-### For developers
-
-Operations are retrieved dinamycally. To add a new operation to an asset, create the asset folder inside actions and the operation file (see `actions/bucket/read.operation.ts`). Once created add ty he description in the `Asset.resource.ts` file.
-Afterwards, the operation should be available to execute for said asset.
-
 ## Credentials
 
 For authenticating with Thinger.io API, an Access Token has to be created. More information on how to create an Access Token can be found [here](https://docs.thinger.io/features/access-tokens).

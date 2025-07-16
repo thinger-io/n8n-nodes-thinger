@@ -4,9 +4,6 @@ import { apiRequest } from "../transport";
 
 import { sortObjectArray } from "../helpers/utils";
 
-const path = require("path");
-const fs = require("fs");
-
 /**
  * Load options for assets: (Ex. device, buckets, users, domains, etc.)
  * @returns {Promise<INodePropertyOptions[]>}
@@ -45,16 +42,15 @@ export async function loadAssetOperations(this: ILoadOptionsFunctions): Promise<
 		return [{ name: 'Select an Asset First', value: '' }];
 	}
 
-	const operationsPath = path.join(__dirname, '..', 'actions', asset);
 	let options: INodePropertyOptions[] = [];
 
-	try {
-		const files = fs.readdirSync(operationsPath);
+	let specificOperations = [];
+	if (asset === 'bucket') {
+		specificOperations.push('read');
+	}
 
-		options = files
-			.filter((file: string) => file.endsWith('.operation.ts') || file.endsWith('.operation.js'))
-			.map((file: string) => {
-				const opName = file.replace('.operation.ts', '').replace('.operation.js', '');
+	options = specificOperations
+			.map(opName => {
 				return {
 					name: opName.replace(/(^\w)/, m => m.toUpperCase()),
 					value: opName,
@@ -62,9 +58,6 @@ export async function loadAssetOperations(this: ILoadOptionsFunctions): Promise<
 					action: `Run the "${opName}" operation on ${asset}`,
 				};
 			});
-	} catch (err) {
-		console.debug(`No additional operations found for asset "${asset}"`);
-	}
 
 	// Append get and get many operations if not already included
 	if (!options.some(option => option.value === 'getMany')) {
