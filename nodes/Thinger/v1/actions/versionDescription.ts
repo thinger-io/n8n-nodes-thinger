@@ -7,7 +7,7 @@ import * as assets from './assets/Assets.resource';
 export const versionDescription: INodeTypeDescription = {
 	displayName: 'Thinger',
 	name: 'thinger',
-	icon: 'file:../thinger.svg',
+	icon: 'file:thinger.svg',
 	group: ['input'],
 	version: [1],
 	//subtitle: '={{ $parameter["operation"] + ": " + $parameter["resource"] }}',
