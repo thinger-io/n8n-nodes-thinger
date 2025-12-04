@@ -15,6 +15,7 @@
 ### Fixed
 
 - Icon Route in Credential section
+- Broken link to Swagger in credential section
 
 ### Removed
 

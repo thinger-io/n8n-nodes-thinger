@@ -1,4 +1,5 @@
 import type { INodeTypeDescription } from 'n8n-workflow';
+import { NodeConnectionTypes } from 'n8n-workflow';
 
 //import * as device from './device/Device.resource';
 import * as assets from './assets/Assets.resource';
@@ -6,7 +7,7 @@ import * as assets from './assets/Assets.resource';
 export const versionDescription: INodeTypeDescription = {
 	displayName: 'Thinger',
 	name: 'thinger',
-	icon: 'file:../../../icons/thinger.svg',
+	icon: 'file:../thinger.svg',
 	group: ['input'],
 	version: [1],
 	//subtitle: '={{ $parameter["operation"] + ": " + $parameter["resource"] }}',
@@ -15,8 +16,8 @@ export const versionDescription: INodeTypeDescription = {
 	defaults: {
 		name: 'Thinger',
 	},
-	inputs: ['main'],
-	outputs: ['main'],
+	inputs: [NodeConnectionTypes.Main],
+	outputs: [NodeConnectionTypes.Main],
 	credentials: [
 		{
 			name: 'thingerTokenApi',

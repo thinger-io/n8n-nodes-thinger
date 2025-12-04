@@ -9,7 +9,7 @@ import {
 export class ThingerTokenApi implements ICredentialType {
     name = 'thingerTokenApi';
     displayName = 'Thinger.io API';
-    documentationUrl = 'https://api.thinger.io/swagger/';
+    documentationUrl = 'https://console.thinger.io/swagger';
     icon: Icon = 'file:../icons/thinger.svg';
     properties: INodeProperties[] = [
         {
