@@ -3,26 +3,29 @@ import {
 	ICredentialTestRequest,
 	ICredentialType,
 	INodeProperties,
+    Icon
 } from 'n8n-workflow';
 
 export class ThingerTokenApi implements ICredentialType {
     name = 'thingerTokenApi';
     displayName = 'Thinger.io API';
-    documentationUrl = 'https://api.thinger.io/swagger/';
+    documentationUrl = 'https://console.thinger.io/swagger';
+    icon: Icon = 'file:../icons/thinger.svg';
     properties: INodeProperties[] = [
         {
             displayName: 'Thinger.io Host',
             name: 'thingerHost',
             type: 'string',
-            default: '$env["THINGER_HOST"]',
-            description: 'Your Thinger.io host',
+            default: '',
+            description: 'Your Thinger.io host (e.g., "console.thinger.io" or your custom domain)',
         },
         {
             displayName: 'Auth Token',
             name: 'authToken',
             type: 'string',
             typeOptions: { password: true },
-            default: '$env["THINGER_TOKEN_N8N_PLUGIN"]',
+            default: '',
+            description: 'Bearer token for authenticating with the Thinger.io API',
         },
         {
             displayName: 'SSL',

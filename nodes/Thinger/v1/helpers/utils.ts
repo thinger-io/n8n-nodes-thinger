@@ -4,7 +4,7 @@ export function getApiUser(apiToken: string) {
 }
 
 export function sortObjectArray(array: any, property: string) {
-	let array_ = array;
+	const array_ = array;
 	array_.sort(function (a: { [x: string]: number; }, b: { [x: string]: number; }) {
 		if (a[property] > b[property]) return 1;
 		if (a[property] < b[property]) return -1;

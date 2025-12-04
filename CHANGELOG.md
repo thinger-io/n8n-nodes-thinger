@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.0.4] - 2025-12-04
+
+### Added
+
+- Improved field descriptions in credential section for better user understanding
+
+### Changed
+
+- Changed package file structure to support n8n-CLI community nodes guidelines
+- Changed deprecated _requestWithAuthentication_ for _httpRequestWithAuthentication_
+- Changed _IRequestOptions_ for _IHttpRequestOptions_
+
+### Fixed
+
+- Icon Route in Credential section
+- Broken link to Swagger in credential section
+
+### Removed
+
+- Removed @types/nodes from peerDependencies (kept in devDependencies)
+
 ## [1.0.3] - 2025-07-17
 
 ### Fixed

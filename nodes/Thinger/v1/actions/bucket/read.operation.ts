@@ -307,7 +307,7 @@ export async function execute(this: IExecuteFunctions): Promise<INodeExecutionDa
 	//queryParameters.set('tz', msg.timezone || config.timezone);
 
 	// Timeframe filters
-	let filter = this.getNodeParameter('filter', 0);
+	const filter = this.getNodeParameter('filter', 0);
 	let isFilterTime = true;
 	let isSimpleSorting = false;
 	let maxTs;
@@ -315,9 +315,9 @@ export async function execute(this: IExecuteFunctions): Promise<INodeExecutionDa
 
 	switch (filter) {
 		case 'relative':
-			let timeframeSeq = this.getNodeParameter('timespanSequence', 0) as string;
-			let timeframeValue = this.getNodeParameter('timespanValue', 0) as number;
-			let timeframeUnits = this.getNodeParameter('timespanUnits', 0) as string;
+			const timeframeSeq = this.getNodeParameter('timespanSequence', 0) as string;
+			const timeframeValue = this.getNodeParameter('timespanValue', 0) as number;
+			const timeframeUnits = this.getNodeParameter('timespanUnits', 0) as string;
 
 			minTs = new Date();
 			maxTs = minTs.getTime();
@@ -361,7 +361,7 @@ export async function execute(this: IExecuteFunctions): Promise<INodeExecutionDa
 	}
 	let result: any[] | IDataObject = [];
 
-	let endpoint = `/v1/users/{user}/buckets/${bucket}/data`;
+	const endpoint = `/v1/users/{user}/buckets/${bucket}/data`;
 
 	let responseLength = 0;
 	do {
@@ -369,7 +369,7 @@ export async function execute(this: IExecuteFunctions): Promise<INodeExecutionDa
     // Maximum value of items on the query parameter is 1000
     queryParameters.set('items',limit > 1000 || limit < 0 ? 1000 : limit);
 
-		let response = await apiRequestAllItems.call( this, 'GET', endpoint, {}, Object.fromEntries(queryParameters) );
+		const response = await apiRequestAllItems.call( this, 'GET', endpoint, {}, Object.fromEntries(queryParameters) );
 
 		result = result.concat(response);
 

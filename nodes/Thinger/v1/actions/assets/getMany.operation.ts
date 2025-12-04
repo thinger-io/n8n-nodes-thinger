@@ -43,7 +43,7 @@ export async function execute(this: IExecuteFunctions): Promise<INodeExecutionDa
 
 	const endpoint = getThingerAssetsEndpoint(asset);
 
-  let result = await apiRequestAllItems.call(this, 'GET', endpoint, {}, filters);
+  const result = await apiRequestAllItems.call(this, 'GET', endpoint, {}, filters);
 
   return this.helpers.returnJsonArray(result);
 
