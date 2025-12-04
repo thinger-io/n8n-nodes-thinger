@@ -4,7 +4,7 @@ import type {
 	IPollFunctions,
 	ILoadOptionsFunctions,
 	IHttpRequestMethods,
-	IRequestOptions,
+    IHttpRequestOptions,
 } from 'n8n-workflow';
 
 import { getApiUser } from '../helpers/utils';
@@ -33,13 +33,12 @@ export async function apiRequest(
 		host = credentials.useSSL === true ? `https://${thingerHost}` : `http://${thingerHost}`;
 	}
 
-	const options: IRequestOptions = {
+	const options: IHttpRequestOptions = {
 		headers: {},
 		method,
 		body,
 		qs: query,
-		uri: `${host}${endpoint}`,
-		useQuerystring: false,
+		url: `${host}${endpoint}`,
 		json: true,
 	};
 
@@ -51,7 +50,7 @@ export async function apiRequest(
 		delete options.body;
 	}
 
-	return await this.helpers.requestWithAuthentication.call(this, authenticationMethod, options);
+	return await this.helpers.httpRequestWithAuthentication.call(this, authenticationMethod, options);
 }
 
 /**

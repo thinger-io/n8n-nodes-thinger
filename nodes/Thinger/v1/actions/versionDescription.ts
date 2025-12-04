@@ -1,5 +1,4 @@
-/* eslint-disable n8n-nodes-base/node-filename-against-convention */
-import { NodeConnectionType, type INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from 'n8n-workflow';
 
 //import * as device from './device/Device.resource';
 import * as assets from './assets/Assets.resource';
@@ -7,7 +6,7 @@ import * as assets from './assets/Assets.resource';
 export const versionDescription: INodeTypeDescription = {
 	displayName: 'Thinger',
 	name: 'thinger',
-	icon: 'file:thinger.svg',
+	icon: 'file:../../../icons/thinger.svg',
 	group: ['input'],
 	version: [1],
 	//subtitle: '={{ $parameter["operation"] + ": " + $parameter["resource"] }}',
@@ -16,8 +15,8 @@ export const versionDescription: INodeTypeDescription = {
 	defaults: {
 		name: 'Thinger',
 	},
-	inputs: [NodeConnectionType.Main],
-	outputs: [NodeConnectionType.Main],
+	inputs: ['main'],
+	outputs: ['main'],
 	credentials: [
 		{
 			name: 'thingerTokenApi',
@@ -42,33 +41,6 @@ export const versionDescription: INodeTypeDescription = {
 			],
 			default: 'thingerTokenApi',
 		},
-		/*
-		{
-			displayName: 'Asset',
-			name: 'asset',
-			type: 'options',
-			noDataExpression: true,
-			default: '',
-			typeOptions: {
-				loadOptionsMethod: 'loadAssets'
-			},
-		},
-		*/
-		/*{
-			displayName: 'Shit',
-			name: 'resource',
-			type: 'options',
-			noDataExpression: true,
-			options: [
-				{
-					name: 'Device',
-					value: 'device'
-				}
-			],
-			default: 'device'
-		},
-		 */
 		...assets.description,
-		//...device.description
 	],
 };

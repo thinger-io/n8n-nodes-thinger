@@ -13,16 +13,16 @@ export async function assetSearch(
 	filter?: string,
 ): Promise<INodeListSearchResult> {
 
-	let listSearchResult: INodeListSearchResult = {
+	const listSearchResult: INodeListSearchResult = {
 		results: [],
 	};
 
 	const asset = this.getNodeParameter('resource', 0) as string;
-	let endpoint = getThingerAssetsEndpoint(asset);
-	let elements = await apiRequest.call(this, 'GET', endpoint, {}, { name: filter });
+	const endpoint = getThingerAssetsEndpoint(asset);
+	const elements = await apiRequest.call(this, 'GET', endpoint, {}, { name: filter });
 
 	for (const item of elements) {
-		let searchItem: INodeListSearchItems = {
+		const searchItem: INodeListSearchItems = {
 			name: item?.name || item[asset], // Use name if available, otherwise fallback to id
 			value: item[asset],
 		}

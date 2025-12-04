@@ -44,7 +44,7 @@ export async function loadAssetOperations(this: ILoadOptionsFunctions): Promise<
 
 	let options: INodePropertyOptions[] = [];
 
-	let specificOperations = [];
+	const specificOperations = [];
 	if (asset === 'bucket') {
 		specificOperations.push('read');
 	}

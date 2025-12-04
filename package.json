@@ -1,6 +1,6 @@
 {
   "name": "@thinger-io/n8n-nodes-thinger",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "n8n node for interacting with the Thinger.io API",
   "keywords": [
     "n8n-community-node-package",
@@ -24,12 +24,11 @@
   },
   "main": "index.js",
   "scripts": {
-    "build": "npx rimraf dist && tsc && gulp build:icons",
-    "dev": "tsc --watch",
-    "format": "prettier nodes credentials --write",
-    "lint": "eslint nodes credentials package.json",
-    "lintfix": "eslint nodes credentials package.json --fix",
-    "prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes credentials package.json"
+    "build": "n8n-node build",
+    "dev": "n8n-node dev",
+    "lint": "n8n-node lint",
+    "lint:fix": "n8n-node lint --fix",
+    "format": "prettier nodes credentials --write"
   },
   "files": [
     "dist"
@@ -44,16 +43,11 @@
     ]
   },
   "devDependencies": {
-    "@typescript-eslint/parser": "~8.32.0",
-    "eslint": "^8.57.0",
-    "eslint-plugin-n8n-nodes-base": "^1.16.3",
-    "gulp": "^5.0.0",
-    "prettier": "^3.5.3",
-    "typescript": "^5.8.2"
+    "@n8n/node-cli": "latest",
+    "@types/node": "^22.10.1",
+    "prettier": "^3.4.2"
   },
-  "dependencies": {},
   "peerDependencies": {
-    "n8n-workflow": "*",
-    "@types/node": "*"
+    "n8n-workflow": "*"
   }
 }
