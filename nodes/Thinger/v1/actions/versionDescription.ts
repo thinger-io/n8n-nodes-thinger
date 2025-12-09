@@ -1,8 +1,8 @@
 import type { INodeTypeDescription } from 'n8n-workflow';
 import { NodeConnectionTypes } from 'n8n-workflow';
 
-//import * as device from './device/Device.resource';
 import * as assets from './assets/Assets.resource';
+import * as device from './device/Device.resource';
 
 export const versionDescription: INodeTypeDescription = {
 	displayName: 'Thinger',
@@ -10,8 +10,7 @@ export const versionDescription: INodeTypeDescription = {
 	icon: 'file:thinger.svg',
 	group: ['input'],
 	version: [1],
-	//subtitle: '={{ $parameter["operation"] + ": " + $parameter["resource"] }}',
-	subtitle: '={{ $parameter["operation"] + ": " + $parameter["resource"] }}',
+	subtitle: '={{ $parameter["operation"] + ": " + $parameter["resourceType"] }}',
 	description: 'Read, update, write and delete data and resources from Thinger.io',
 	defaults: {
 		name: 'Thinger',
@@ -42,6 +41,24 @@ export const versionDescription: INodeTypeDescription = {
 			],
 			default: 'thingerTokenApi',
 		},
+		{
+			displayName: 'Resource Type',
+			name: 'resourceType',
+			type: 'options',
+			noDataExpression: true,
+			options: [
+				{
+					name: 'Server Assets',
+					value: 'assets',
+				},
+				{
+					name: 'Device',
+					value: 'device',
+				},
+			],
+			default: 'assets',
+		},
 		...assets.description,
+		...device.description,
 	],
 };

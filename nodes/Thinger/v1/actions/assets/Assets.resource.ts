@@ -2,13 +2,11 @@ import type { INodeProperties } from 'n8n-workflow';
 
 import * as getMany from './getMany.operation';
 import * as get from './get.operation';
-
 import * as bucketRead from '../bucket/read.operation';
 
-export { getMany, get};
+export { getMany, get };
 
 export const description: INodeProperties[] = [
-
 	{
 		displayName: 'Resource Name or ID',
 		name: 'resource',
@@ -18,6 +16,11 @@ export const description: INodeProperties[] = [
 		default: '',
 		typeOptions: {
 			loadOptionsMethod: 'loadAssets'
+		},
+		displayOptions: {
+			show: {
+				resourceType: ['assets'],
+			},
 		},
 	},
 	{
@@ -31,6 +34,11 @@ export const description: INodeProperties[] = [
 			loadOptionsDependsOn: ['resource'],
 		},
 		default: '',
+		displayOptions: {
+			show: {
+				resourceType: ['assets'],
+			},
+		},
 	},
 	...getMany.description,
 	...get.description,

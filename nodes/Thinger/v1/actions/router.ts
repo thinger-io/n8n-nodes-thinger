@@ -3,38 +3,29 @@ import { NodeOperationError } from 'n8n-workflow';
 
 //import * as device from './device/Device.resource';
 import * as assets from './assets/Assets.resource';
-import type { ThingerType } from './node.type';
+import * as device from './device/Device.resource';
 
 export async function router(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
 	let returnData: INodeExecutionData[] = [];
 
-	const resource: string = this.getNodeParameter('resource', 0);
+	const resourceType = this.getNodeParameter('resourceType', 0);
 	const operation = this.getNodeParameter('operation', 0);
 
-	const thingerNodeData = {
-		resource,
-		operation,
-	} as ThingerType;
-
 	try {
-		switch (thingerNodeData.operation) {
-			case 'get':
-			case 'getMany':
-				// Handle 'get' and 'getMany' operations
-				returnData = await assets[thingerNodeData.operation].execute.call(this);
-				break;
-			default:
-				// Handle other operations
-				const assetOperation = await import(`./${thingerNodeData.resource}/${thingerNodeData.operation}.operation`);
-				if ( !(assetOperation) || typeof assetOperation.execute === 'function' ) {
-					returnData = await assetOperation.execute.call(this);
-				} else {
-					throw new NodeOperationError(
-						this.getNode(),
-						`The operation "${operation}" is not supported!`,
-					);
-				}
-				break;
+		if (resourceType === 'device' && operation === 'write') {
+			returnData = await device.write.execute.call(this);
+		} else if (operation === 'get' || operation === 'getMany') {
+			returnData = await assets[operation].execute.call(this);
+		} else {
+			const assetOperation = await import(`./${resourceType}/${operation}.operation`);
+			if (assetOperation && typeof assetOperation.execute === 'function') {
+				returnData = await assetOperation.execute.call(this);
+			} else {
+				throw new NodeOperationError(
+					this.getNode(),
+					`The operation "${operation}" is not supported!`,
+				);
+			}
 		}
 	} catch (error) {
 		if (

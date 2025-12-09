@@ -2,6 +2,10 @@
 
 ## [1.0.5] - 2025-12-
 
+### Added
+
+- Added support for POST HTTP request for Thinger.io devices.
+
 ### Removed
 
 - Removed unnecessary Thinger Host field from credential section

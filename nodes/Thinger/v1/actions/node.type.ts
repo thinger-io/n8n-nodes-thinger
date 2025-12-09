@@ -1,7 +1,8 @@
 import type { AllEntities } from 'n8n-workflow';
 
 type NodeMap = {
-	[key: string]: 'get' | 'getMany';
+	assets: 'get' | 'getMany';
+	device: 'write';
 };
 
 export type ThingerType = AllEntities<NodeMap>;
