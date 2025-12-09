@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.5] - 2025-12-
+
+### Removed
+
+- Removed unnecessary Thinger Host field from credential section
+
 ## [1.0.4] - 2025-12-04
 
 ### Added

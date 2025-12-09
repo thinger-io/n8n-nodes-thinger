@@ -3,6 +3,11 @@ export function getApiUser(apiToken: string) {
 	return decodedJWT.usr;
 }
 
+export function getApiHost(apiToken: string) {
+	const decodedJWT = JSON.parse(Buffer.from(apiToken.split('.')[1], 'base64').toString());
+	return decodedJWT.svr;
+}
+
 export function sortObjectArray(array: any, property: string) {
 	const array_ = array;
 	array_.sort(function (a: { [x: string]: number; }, b: { [x: string]: number; }) {

@@ -1,13 +1,13 @@
 import type {
 	IDataObject,
 	IExecuteFunctions,
-	IPollFunctions,
-	ILoadOptionsFunctions,
 	IHttpRequestMethods,
-    IHttpRequestOptions,
+	IHttpRequestOptions,
+	ILoadOptionsFunctions,
+	IPollFunctions,
 } from 'n8n-workflow';
 
-import { getApiUser } from '../helpers/utils';
+import { getApiHost, getApiUser } from '../helpers/utils';
 
 /**
  * Make an API request to Thinger.io
@@ -29,16 +29,20 @@ export async function apiRequest(
 	endpoint = endpoint.replace('{user}', getApiUser(credentials.authToken as string));
 
 	if ( !host  ) {
-		const thingerHost = credentials.thingerHost as string;
+		const thingerHost = getApiHost(credentials.authToken as string);
 		host = credentials.useSSL === true ? `https://${thingerHost}` : `http://${thingerHost}`;
 	}
 
 	const options: IHttpRequestOptions = {
-		headers: {},
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json',
+		},
 		method,
 		body,
 		qs: query,
-		url: `${host}${endpoint}`,
+		baseURL: host,
+		url: endpoint,
 		json: true,
 	};
 
@@ -50,7 +54,11 @@ export async function apiRequest(
 		delete options.body;
 	}
 
-	return await this.helpers.httpRequestWithAuthentication.call(this, authenticationMethod, options);
+	return await this.helpers.httpRequestWithAuthentication.call(
+		this,
+		authenticationMethod,
+		options,
+	);
 }
 
 /**
